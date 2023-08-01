@@ -12,21 +12,16 @@
  */
 listint_t *add_nodeint(listint_t **head, const int n)
 {
-    listint_t *new = NULL;
+	listint_t *new;
 
-    // Allocate memory for the new node
-    new = malloc(sizeof(listint_t));
-    if (new == NULL)
-        return (NULL);
+	new = malloc(sizeof(listint_t));
+	if (new == NULL)
+		return (NULL);
 
-    // Assign values to the new node
-    new->n = n;
-    new->next = NULL;
+	new->n = n;
+	new->next = *head;
 
-    if (*head != NULL)
-        new->next = *head;
+	*head = new;
 
-    *head = new;
-
-    return (new);
+	return (new);
 }
